@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 :root {
-    --background-color: #f8f8f8;
-    --text-color: #101010;
+    --background-color: light-dark(#f8f8f8, #101010);
+    --text-color: light-dark(#101010, #f8f8f8);
 
-    --text-area: #dcdcdc;
+    --button-text: #f8f8f8;
+
+    --text-area: light-dark(#dcdcdc, #232323);
 
     --generate-color: #3498db;
     --generate-hover: #2980b9;
@@ -13,6 +15,14 @@
     --copy-color: #2ecc71;
     --copy-hover: #27ae60;
     --copy-shadow: #11512c;
+}
+
+html.light {
+    color-scheme: light;
+}
+
+html.dark {
+    color-scheme: dark;
 }
 
 body {
@@ -24,6 +34,16 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     padding: 1rem;
+}
+
+header {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+}
+
+header span.material-symbols-outlined {
+    cursor: pointer;
 }
 
 textarea {
@@ -47,8 +67,13 @@ textarea {
 
 footer {
     bottom: 0;
+    color: var(--text-color);
     padding: 1rem;
     position: fixed;
+}
+
+footer svg {
+    color: var(--text-color);
 }
 
 /* ------------------- */
@@ -58,7 +83,7 @@ footer {
 button {
     border: none;
     border-radius: 0.5rem;
-    color: var(--background-color);
+    color: var(--button-text);
     cursor: pointer;
     font-family: inherit;
     font-size: 1rem;
@@ -102,4 +127,11 @@ button:active {
 
 #copy-btn:active {
     box-shadow: 0 0 0 var(--copy-shadow);
+}
+
+/* ------------------ */
+/* ----- Themes ----- */
+/* ------------------ */
+body, textarea, button {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }

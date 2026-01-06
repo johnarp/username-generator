@@ -40,13 +40,19 @@ Check it out [here](https://johnarp.github.io/username-generator)
     ```powershell
     git clone https://github.com/johnarp/username-generator.git
     ```
-2. Open `index.html` in your browser.
+2. Run a local server
+    ```powershell
+    # Python 3
+    cd username-generator
+    python -m http.server 3000
+    ```
+3. Open your browser and go to [http://localhost:3000](http://localhost:3000)
 
 </details>
 
 ## ✨ Version
 
-**Current Version:** v0.1.0
+**Current Version:** v0.2.0
 
 See [CHANGELOG](CHANGELOG.md) for updates.
 
