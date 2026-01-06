@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Username Generator</title>
+        <link rel="stylesheet" href="styles.css">
+        <!-- PyScript -->
+        <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css" />
+        <script type="module" src="https://pyscript.net/releases/2025.11.2/core.js"></script>
+    </head>
+
+    <body>
+        <h1>Username Generator</h1>
+        <br>
+        <div id="btns">
+            <button id="generate-btn">Generate Username</button>
+            <button id="copy-btn">Copy to Clipboard</button>
+        </div>
+        <textarea readonly id="username" autocomplete="off"></textarea>
+        <span id="copy-message"></span>
+        <span id="loading-message">Loading Python...</span>
+        <py-script>
+            import random
+            from js import document, navigator, setTimeout
+            from pyodide.ffi import create_once_callable
+            
+            # LOADING
+            document.getElementById("loading-message").style.display = "none"
+            
+            # USERNAME GENERATOR
+            adjectives = ["Cool", "Happy", "Funny", "Crazy", "Sunny"]
+            nouns = ["Rat", "Day", "Shade", "Monkey", "Guy"]
+            def generate(event=None):
+                adj = random.choice(adjectives)
+                noun = random.choice(nouns)
+                username = f"{adj}{noun}"
+                document.getElementById("username").value = username
+            
+            # COPY TO CLIPBOARD
+            def copy(event=None):
+                username = document.getElementById("username").value
+                if username:
+                    navigator.clipboard.writeText(username)
+                    msg = document.getElementById("copy-message")
+                    msg.textContent = "Copied!"
+                    clear = create_once_callable(lambda: setattr(msg, "textContent", ""))
+                    setTimeout(clear, 1500)
+            
+            # BUTTONS
+            document.getElementById("generate-btn").onclick = generate
+            document.getElementById("copy-btn").onclick = copy
+        </py-script>
+    </body>
+
+    <footer>
+        <a href="https://github.com/johnarp/username-generator" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" width="32px" alt="GitHub"></a>
+    </footer>
+
+</html>

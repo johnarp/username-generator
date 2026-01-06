@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    --background-color: #f8f8f8;
+    --text-color: #101010;
+
+    --text-area: #dcdcdc;
+
+    --generate-color: #3498db;
+    --generate-hover: #2980b9;
+    --generate-shadow: #133e5b;
+
+    --copy-color: #2ecc71;
+    --copy-hover: #27ae60;
+    --copy-shadow: #11512c;
+}
+
+body {
+    align-items: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    font-family: Outfit, sans-serif;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+
+textarea {
+    background-color: var(--text-area);
+    border: none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 700;
+    height: 4rem;
+    margin-bottom: 1rem;
+    max-width: 50rem;
+    min-width: 75%;
+    outline: none;
+    padding: 1rem;
+    resize: none;
+    text-align: center;
+}
+
+footer {
+    bottom: 0;
+    padding: 1rem;
+    position: fixed;
+}
+
+/* ------------------- */
+/* ----- Buttons ----- */
+/* ------------------- */
+
+button {
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--background-color);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem;
+    transform: translateY(-0.5rem);
+    transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s ease;
+}
+
+button:active {
+    transform: translateY(0rem);
+}
+
+#btns {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#generate-btn {
+    background-color: var(--generate-color);
+    box-shadow: 0 0.5rem 0 var(--generate-shadow);
+}
+
+#generate-btn:hover {
+    background-color: var(--generate-hover);
+}
+
+#generate-btn:active {
+    box-shadow: 0 0 0 var(--generate-shadow);
+}
+
+#copy-btn {
+    background-color: var(--copy-color);
+    box-shadow: 0 0.5rem 0 var(--copy-shadow);
+}
+
+#copy-btn:hover {
+    background-color: var(--copy-hover);
+}
+
+#copy-btn:active {
+    box-shadow: 0 0 0 var(--copy-shadow);
+}
