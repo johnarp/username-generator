@@ -52,7 +52,7 @@ Check it out [here](https://johnarp.github.io/username-generator)
 
 ## ✨ Version
 
-**Current Version:** v0.2.0
+**Current Version:** v0.2.1
 
 See [CHANGELOG](CHANGELOG.md) for updates.
 
