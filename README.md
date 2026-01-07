@@ -4,10 +4,6 @@
 
 A simple browser-based username generator using PyScript.
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-
 <h3>
     <a href="#-installation">Installation</a>
     <span> · </span>
@@ -52,7 +48,7 @@ Check it out [here](https://johnarp.github.io/username-generator)
 
 ## ✨ Version
 
-**Current Version:** v0.2.1
+See [Releases](https://github.com/johnarp/username-generator/releases) for the latest release.
 
 See [CHANGELOG](CHANGELOG.md) for updates.
 

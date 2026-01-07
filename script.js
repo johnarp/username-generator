@@ -1,8 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
     const html = document.documentElement;
+    // theme and clear storage icons
     const sun = document.getElementById("sun");
     const moon = document.getElementById("moon");
     const trash = document.getElementById("trash");
+    // sound icons
+    const sound_on = document.getElementById("sound_on");
+    const sound_off = document.getElementById("sound_off");
+    // sound buttons
+    const genBtn = document.getElementById("generate-btn");
+    const copyBtn = document.getElementById("copy-btn");
+    const genSound = new Audio("./sounds/mixkit-cool-interface-click-tone-2568.wav");
+    const copySound = new Audio("./sounds/mixkit-electronic-lock-success-beeps-2852.wav");
+    genSound.volume = 0.1;
+    copySound.volume = 0.05;
+    genSound.preload = "auto";
+    copySound.preload = "auto";
 
     // apply theme
     function apply(theme) {
@@ -19,6 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // apply sound
+    function applySound(state) {
+        if (state === "off") {
+            sound_on.style.display = "none";
+            sound_off.style.display = "inline";
+        } else {
+            sound_on.style.display = "inline";
+            sound_off.style.display = "none";
+        }
+    }
+
     // load theme from localstorage
     const saved = localStorage.getItem("theme");
     if (saved === "dark" || saved === "light") {
@@ -26,6 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         // default to light
         apply("light");
+    }
+
+    // load sound state from localstorage
+    const savedSound = localStorage.getItem("sound");
+    if (savedSound === "off" || savedSound === "on") {
+        applySound(savedSound);
+    } else {
+        // default to sound on
+        applySound("on");
     }
 
     // toggle themes
@@ -39,6 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // toggle sound
+    function toggleSound() {
+        if (sound_on.style.display !== "none") {
+            applySound("off");
+            localStorage.setItem("sound", "off");
+        } else {
+            applySound("on");
+            localStorage.setItem("sound", "on");
+        }
+    }
+
     function clearStorage() {
         localStorage.clear();
         // reset to default
@@ -46,6 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
         html.classList.add("light");
         sun.style.display = "inline";
         moon.style.display = "none";
+        sound_on.style.display = "inline";
+        sound_off.style.display = "none";
         alert("LocalStorage has been cleared.")
     }
 
@@ -53,4 +99,18 @@ document.addEventListener("DOMContentLoaded", () => {
     sun.addEventListener("click", toggle);
     moon.addEventListener("click", toggle);
     trash.addEventListener("click", clearStorage);
+    sound_on.addEventListener("click", toggleSound);
+    sound_off.addEventListener("click", toggleSound);
+
+    // button sounds
+    genBtn.addEventListener("click", () => {
+        if (sound_off.style.display !== "none") return;
+        genSound.currentTime = 0;
+        genSound.play();
+    });
+    copyBtn.addEventListener("click", () => {
+        if (sound_off.style.display !== "none") return;
+        copySound.currentTime = 0;
+        copySound.play();
+    });
 });
