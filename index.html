@@ -24,10 +24,10 @@
         <h1>Username Generator</h1>
         <br>
         <div id="btns">
-            <button id="generate-btn">Generate Username</button>
-            <button id="copy-btn">Copy to Clipboard</button>
+            <button id="generate-btn" aria-label="Generate">Generate Username (G)</button>
+            <button id="copy-btn" aria-label="Copy">Copy to Clipboard (C)</button>
         </div>
-        <textarea readonly id="username" autocomplete="off"></textarea>
+        <textarea readonly id="username" autocomplete="off" aria-label="Username"></textarea>
         <span id="copy-message"></span>
         <span id="loading-message">Loading Python...</span>
         <footer>

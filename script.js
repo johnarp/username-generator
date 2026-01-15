@@ -113,4 +113,20 @@ document.addEventListener("DOMContentLoaded", () => {
         copySound.currentTime = 0;
         copySound.play();
     });
+
+    // keyboard shortcuts
+    document.addEventListener("keydown", (e) => {
+        // ignore typing inside inputs or textarea
+        if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+            return;
+        }
+        // generate = g
+        if (e.key.toLowerCase() === "g") {
+            genBtn.click();
+        }
+        // copy = c
+        if (e.key.toLowerCase() === "c") {
+            copyBtn.click();
+        }
+    });
 });
